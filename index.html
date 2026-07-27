@@ -11,6 +11,9 @@
 <meta property="og:url" content="https://www.mygenescreen.in">
 <meta property="og:type" content="website">
 <title>Lakshita Thakore — Genetic Counselor | MyGeneScreen Clinic, Ahmedabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -18,8 +21,8 @@
 :root{--cy:#009f6b;--cy2:#007a52;--cy3:#005c3e;--dk:#1a1a2e;--mid:#666;--lt:#f0fff8;--bd:#c8edd9;--glow:rgba(0,159,107,.35)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;color:#444;overflow-x:hidden;font-size:15px;line-height:1.65;background:#fff}
-h1,h2,h3,h4,h5{line-height:1.25;font-weight:700;font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif}
+body{font-family:'Lato','Gill Sans',Calibri,sans-serif;color:#444;overflow-x:hidden;font-size:15px;line-height:1.65;background:#fff}
+h1,h2,h3,h4,h5{line-height:1.25;font-weight:700;font-family:'Montserrat','Gill Sans',Calibri,sans-serif}
 a{text-decoration:none}
 
 /* SCROLL PROGRESS */
@@ -51,7 +54,7 @@ a{text-decoration:none}
 .logo-circle{width:48px;height:48px;background:linear-gradient(135deg,var(--cy),var(--cy2));border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:logo-spin 8s linear infinite;box-shadow:0 4px 14px var(--glow)}
 @keyframes logo-spin{0%{box-shadow:0 0 0 0 var(--glow)}50%{box-shadow:0 0 20px 6px var(--glow)}100%{box-shadow:0 0 0 0 var(--glow)}}
 .logo-circle i{color:#fff;font-size:21px}
-.logo-name{font-size:23px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;display:block;background:linear-gradient(90deg,#007a52,#009f6b,#00c47f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif}
+.logo-name{font-size:23px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;display:block;background:linear-gradient(90deg,#007a52,#009f6b,#00c47f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Montserrat','Gill Sans',Calibri,sans-serif}
 .logo-tag{font-size:10.5px;color:var(--mid);letter-spacing:.1em;text-transform:uppercase;display:block}
 .phone-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--cy),var(--cy2));color:#fff;padding:11px 26px;border-radius:100px;font-weight:700;font-size:14px;transition:all .3s;position:relative;overflow:hidden;animation:ph-pulse 3s ease-in-out infinite}
 .phone-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.2),transparent 70%);transform:translateX(-100%);transition:transform .5s}
@@ -63,7 +66,7 @@ a{text-decoration:none}
 .main-nav{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:999;transition:all .4s;border-bottom:1px solid transparent}
 .main-nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.1);border-bottom-color:var(--bd)}
 .nav-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:0}
-.nav-links a{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dk);padding:18px 16px;display:block;position:relative;transition:color .3s}
+.nav-links a{font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--dk);padding:18px 16px;display:block;position:relative;transition:color .3s}
 .nav-links a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:3px;background:linear-gradient(90deg,var(--cy),var(--cy2));border-radius:2px 2px 0 0;transition:left .3s,right .3s}
 .nav-links a:hover,.nav-links a.act{color:var(--cy)}
 .nav-links a:hover::after,.nav-links a.act::after{left:0;right:0}
@@ -92,7 +95,7 @@ a{text-decoration:none}
 .hero-grid{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:40px 40px;z-index:1;pointer-events:none}
 .hero-cnt{text-align:center;color:#fff;position:relative;z-index:3;padding:0 20px;max-width:860px}
 .hero-ey{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px;display:block;animation:fadeUp .8s .1s both}
-.hero-h1{font-size:clamp(2.2rem,5.5vw,4.4rem);font-weight:900;text-transform:uppercase;letter-spacing:.04em;margin-bottom:18px;text-shadow:0 2px 30px rgba(0,0,0,.4);animation:fadeUp .8s .2s both;line-height:1.1}
+.hero-h1{font-size:clamp(2.2rem,5.5vw,4.4rem);font-weight:900;text-transform:uppercase;letter-spacing:.02em;margin-bottom:18px;text-shadow:0 2px 30px rgba(0,0,0,.4);animation:fadeUp .8s .2s both;line-height:1.1}
 .hero-sub{font-size:clamp(.95rem,2vw,1.15rem);opacity:.85;max-width:560px;margin:0 auto 32px;line-height:1.8;animation:fadeUp .8s .35s both}
 .hero-btns{opacity:0;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .5s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
@@ -134,7 +137,7 @@ a{text-decoration:none}
 /* SECTIONS */
 .sec{padding:90px 0}
 .sec-alt{background:#fff}
-.sec-ey{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cy);display:block;margin-bottom:10px;font-weight:700}
+.sec-ey{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cy);display:block;margin-bottom:10px;font-weight:700;font-family:'Montserrat',sans-serif}
 .sec-ttl{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:900;text-transform:uppercase;color:var(--dk);margin-bottom:10px;letter-spacing:.02em}
 .sec-line{width:50px;height:3px;background:linear-gradient(90deg,var(--cy),var(--cy2));display:block;margin:0 auto 18px;border-radius:2px}
 .sec-line.left{margin:0 0 18px}
