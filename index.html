@@ -11,6 +11,7 @@
 <meta property="og:url" content="https://www.mygenescreen.in">
 <meta property="og:type" content="website">
 <title>Lakshita Thakore — Genetic Counselor | MyGeneScreen Clinic, Ahmedabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -18,15 +19,15 @@
 :root{--cy:#009f6b;--cy2:#007a52;--cy3:#005c3e;--dk:#1a1a2e;--mid:#666;--lt:#f0fff8;--bd:#c8edd9;--glow:rgba(0,159,107,.35)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#444;overflow-x:hidden;font-size:15px;line-height:1.65;background:#fff}
-h1,h2,h3,h4,h5{line-height:1.25;font-weight:700}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;color:#444;overflow-x:hidden;font-size:15px;line-height:1.65;background:#fff}
+h1,h2,h3,h4,h5{line-height:1.25;font-weight:700;font-family:'Syne','Plus Jakarta Sans',sans-serif}
 a{text-decoration:none}
 
 /* SCROLL PROGRESS */
 #scroll-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cy),#4fd4a8,var(--cy));width:0%;z-index:100000;transition:width .1s linear;box-shadow:0 0 10px var(--cy)}
 
 /* PRELOADER */
-#preloader{position:fixed;inset:0;background:linear-gradient(135deg,#0a1628,#0d2137,#0a3d5e);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .6s,visibility .6s}
+#preloader{position:fixed;inset:0;background:linear-gradient(135deg,#020d06,#061a10,#0a3d27);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .6s,visibility .6s}
 #preloader.done{opacity:0;visibility:hidden;pointer-events:none}
 .pre-dna{width:60px;height:120px;position:relative}
 .pre-dna canvas{width:60px;height:120px}
@@ -51,7 +52,7 @@ a{text-decoration:none}
 .logo-circle{width:48px;height:48px;background:linear-gradient(135deg,var(--cy),var(--cy2));border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:logo-spin 8s linear infinite;box-shadow:0 4px 14px var(--glow)}
 @keyframes logo-spin{0%{box-shadow:0 0 0 0 var(--glow)}50%{box-shadow:0 0 20px 6px var(--glow)}100%{box-shadow:0 0 0 0 var(--glow)}}
 .logo-circle i{color:#fff;font-size:21px}
-.logo-name{font-size:23px;font-weight:800;text-transform:uppercase;color:var(--dk);letter-spacing:.06em;display:block;background:linear-gradient(90deg,var(--dk),var(--cy));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-name{font-size:23px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;display:block;background:linear-gradient(90deg,#007a52,#009f6b,#00c47f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Syne',sans-serif}
 .logo-tag{font-size:10.5px;color:var(--mid);letter-spacing:.1em;text-transform:uppercase;display:block}
 .phone-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--cy),var(--cy2));color:#fff;padding:11px 26px;border-radius:100px;font-weight:700;font-size:14px;transition:all .3s;position:relative;overflow:hidden;animation:ph-pulse 3s ease-in-out infinite}
 .phone-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.2),transparent 70%);transform:translateX(-100%);transition:transform .5s}
@@ -81,9 +82,9 @@ a{text-decoration:none}
 .hero-sw{width:100%;height:100vh;min-height:580px;max-height:800px;position:relative}
 #hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
 .hero-slide{display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.hs1{background:linear-gradient(135deg,#050e1a 0%,#051a0e 40%,#0a3d27 80%,#009f6b 100%)}
-.hs2{background:linear-gradient(135deg,#020a14 0%,#0d2137 40%,#1a4a6e 80%,#0097a7 100%)}
-.hs3{background:linear-gradient(135deg,#0d0520 0%,#1a0b2e 40%,#311b92 80%,#7986cb 100%)}
+.hs1{background:linear-gradient(135deg,rgba(2,13,6,.9) 0%,rgba(6,26,16,.82) 40%,rgba(10,61,39,.72) 80%,rgba(0,159,107,.45) 100%),url('https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat}
+.hs2{background:linear-gradient(135deg,rgba(2,13,6,.92) 0%,rgba(6,26,16,.85) 40%,rgba(10,50,30,.75) 80%,rgba(0,120,80,.5) 100%),url('https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat}
+.hs3{background:linear-gradient(135deg,rgba(2,13,6,.92) 0%,rgba(4,20,12,.85) 40%,rgba(8,40,24,.75) 80%,rgba(0,100,60,.5) 100%),url('https://images.pexels.com/photos/8442099/pexels-photo-8442099.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
 .hero-orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(0,159,107,.18),transparent 70%);top:-100px;right:-100px;animation:orb-drift1 12s ease-in-out infinite}
 .hero-orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.06),transparent 70%);bottom:-80px;left:-80px;animation:orb-drift2 15s ease-in-out infinite}
@@ -154,7 +155,7 @@ a{text-decoration:none}
 @keyframes ripple-anim{to{transform:scale(4);opacity:0}}
 
 /* STATS BAND */
-.stats-band{background:linear-gradient(135deg,#050e1a 0%,#0a2540 50%,#0d4f72 100%);padding:64px 0;position:relative;overflow:hidden}
+.stats-band{background:linear-gradient(135deg,#020d06 0%,#061a10 50%,#0a2e1a 100%);border-top:1px solid rgba(0,159,107,.15);padding:64px 0;position:relative;overflow:hidden}
 .stats-band::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:30px 30px}
 .stat-it{text-align:center;padding:10px 0;position:relative}
 .stat-ring{width:110px;height:110px;margin:0 auto 14px;position:relative}
@@ -186,7 +187,7 @@ textarea.fc{resize:vertical;min-height:90px}
 .filt-btn:hover,.filt-btn.act{background:linear-gradient(135deg,var(--cy),var(--cy2));border-color:transparent;color:#fff;box-shadow:0 6px 20px var(--glow);transform:translateY(-2px)}
 
 /* SERVICES GRID */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc-sec{background:#fff;padding:90px 0;}.svc-sec .sec-hd{color:var(--dk);}.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .svc-item{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;height:200px;transition:all .4s}
 .svc-item.hide{display:none}
 .svc-item.reveal-in{animation:revealIn .45s cubic-bezier(.34,1.56,.64,1) forwards}
@@ -204,10 +205,10 @@ textarea.fc{resize:vertical;min-height:90px}
 .svc-item:hover::after{transform:translateX(100%);transition:transform .6s ease}
 
 /* ABOUT SECTION */
-.best-sec{background:linear-gradient(135deg,#050e1a 0%,#0a1f3d 40%,#0d2f55 100%);padding:90px 0;position:relative;overflow:hidden}
+.best-sec{background:linear-gradient(135deg,#020d06 0%,#061a10 40%,#0a2518 100%);padding:90px 0;position:relative;overflow:hidden}
 .best-sec .bg-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
 .best-sec .bg-orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(0,159,107,.12),transparent 70%);top:-150px;right:-150px;animation:orb-drift1 14s ease-in-out infinite}
-.best-sec .bg-orb2{width:350px;height:350px;background:radial-gradient(circle,rgba(121,134,203,.1),transparent 70%);bottom:-100px;left:-100px;animation:orb-drift2 18s ease-in-out infinite}
+.best-sec .bg-orb2{width:350px;height:350px;background:radial-gradient(circle,rgba(0,159,107,.1),transparent 70%);bottom:-100px;left:-100px;animation:orb-drift2 18s ease-in-out infinite}
 .best-ttl{color:#fff !important}
 .best-txt{color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:24px;font-size:14.5px}
 .best-list{list-style:none;padding:0;margin-bottom:32px}
@@ -290,7 +291,7 @@ textarea.fc{resize:vertical;min-height:90px}
 .offer-rm:hover{color:var(--cy2);gap:10px}
 
 /* DEPARTMENTS */
-.dept-sec{background:linear-gradient(135deg,#050e1a 0%,#0a2540 50%,#0d4f72 100%);padding:90px 0;position:relative;overflow:hidden}
+.dept-sec{background:linear-gradient(135deg,#020d06 0%,#061a10 50%,#0a2e1a 100%);padding:90px 0;position:relative;overflow:hidden}
 .dept-sec::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,159,107,.04) 1px,transparent 1px);background-size:32px 32px}
 .dept-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 .dept-item{text-align:center;padding:28px 12px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.05);cursor:pointer;transition:all .35s;position:relative;overflow:hidden}
@@ -314,7 +315,7 @@ textarea.fc{resize:vertical;min-height:90px}
 .pub-doi{font-size:12px;color:var(--cy);font-weight:600}
 
 /* FOOTER */
-.footer-main{background:linear-gradient(135deg,#050e1a 0%,#0a1a2e 100%);padding:70px 0 28px;position:relative;overflow:hidden}
+.footer-main{background:linear-gradient(135deg,#020d06 0%,#061a10 100%);padding:70px 0 28px;position:relative;overflow:hidden}
 .footer-main::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.02) 1px,transparent 1px);background-size:28px 28px}
 .fw h4{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.11em;color:#fff;margin-bottom:22px;padding-bottom:12px;border-bottom:2px solid var(--cy);display:inline-block;position:relative}
 .fc-list{list-style:none;padding:0}
@@ -338,7 +339,7 @@ textarea.fc{resize:vertical;min-height:90px}
 .f-form input:focus,.f-form textarea:focus{outline:none;border-color:var(--cy);background:rgba(0,159,107,.08)}
 .f-form input::placeholder,.f-form textarea::placeholder{color:rgba(255,255,255,.25)}
 .f-form textarea{resize:vertical;min-height:90px}
-.fbar{background:#020a14;padding:18px 0;text-align:center;position:relative}
+.fbar{background:#010804;padding:18px 0;text-align:center;position:relative}
 .fbar p{font-size:12.5px;color:rgba(255,255,255,.25);margin:0}
 .fbar a{color:var(--cy)}
 
@@ -615,15 +616,15 @@ textarea.fc{resize:vertical;min-height:90px}
       <button class="filt-btn" onclick="filt(this,'genomic')">Genomic</button>
     </div>
     <div class="svc-grid reveal">
-      <div class="svc-item" data-cat="counsel"><div class="svc-bg" style="background:linear-gradient(135deg,#0d4f72,#009f6b)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-clipboard-list"></i></div><h3>Pre-Test Counselling</h3></div><span class="svc-badge">Counselling</span></div>
-      <div class="svc-item" data-cat="counsel"><div class="svc-bg" style="background:linear-gradient(135deg,#1565c0,#42a5f5)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-file-medical-alt"></i></div><h3>Post-Test Counselling</h3></div><span class="svc-badge">Counselling</span></div>
-      <div class="svc-item" data-cat="counsel"><div class="svc-bg" style="background:linear-gradient(135deg,#00695c,#26c6da)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-users"></i></div><h3>Family Risk Assessment</h3></div><span class="svc-badge">Counselling</span></div>
+      <div class="svc-item" data-cat="counsel"><div class="svc-bg" style="background:linear-gradient(135deg,#0a3d27,#009f6b)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-clipboard-list"></i></div><h3>Pre-Test Counselling</h3></div><span class="svc-badge">Counselling</span></div>
+      <div class="svc-item" data-cat="counsel"><div class="svc-bg" style="background:linear-gradient(135deg,#005c3e,#009f6b)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-file-medical-alt"></i></div><h3>Post-Test Counselling</h3></div><span class="svc-badge">Counselling</span></div>
+      <div class="svc-item" data-cat="counsel"><div class="svc-bg" style="background:linear-gradient(135deg,#00695c,#00c47f)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-users"></i></div><h3>Family Risk Assessment</h3></div><span class="svc-badge">Counselling</span></div>
       <div class="svc-item" data-cat="prenatal"><div class="svc-bg" style="background:linear-gradient(135deg,#e65100,#ff9800)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-baby"></i></div><h3>Prenatal Genetic Counselling</h3></div><span class="svc-badge" style="background:#ff9800">Prenatal</span></div>
       <div class="svc-item" data-cat="prenatal"><div class="svc-bg" style="background:linear-gradient(135deg,#880e4f,#e91e63)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-heart"></i></div><h3>Preconception Counselling</h3></div><span class="svc-badge" style="background:#e91e63">Prenatal</span></div>
       <div class="svc-item" data-cat="prenatal"><div class="svc-bg" style="background:linear-gradient(135deg,#4a148c,#9c27b0)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-shield-alt"></i></div><h3>Carrier Screening</h3></div><span class="svc-badge" style="background:#9c27b0">Reproductive</span></div>
       <div class="svc-item" data-cat="cancer"><div class="svc-bg" style="background:linear-gradient(135deg,#b71c1c,#ef5350)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-ribbon"></i></div><h3>Hereditary Cancer Genetics</h3></div><span class="svc-badge" style="background:#ef5350">Oncogenetics</span></div>
-      <div class="svc-item" data-cat="neuro"><div class="svc-bg" style="background:linear-gradient(135deg,#1a237e,#7986cb)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-brain"></i></div><h3>Neurogenetics</h3></div><span class="svc-badge" style="background:#7986cb">Neurogenetics</span></div>
-      <div class="svc-item" data-cat="genomic"><div class="svc-bg" style="background:linear-gradient(135deg,#004d40,#00bcd4)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-dna"></i></div><h3>WES / WGS Interpretation</h3></div><span class="svc-badge" style="background:#00bcd4">Genomic</span></div>
+      <div class="svc-item" data-cat="neuro"><div class="svc-bg" style="background:linear-gradient(135deg,#1a3e2e,#4caf8e)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-brain"></i></div><h3>Neurogenetics</h3></div><span class="svc-badge" style="background:#4caf8e">Neurogenetics</span></div>
+      <div class="svc-item" data-cat="genomic"><div class="svc-bg" style="background:linear-gradient(135deg,#004d40,#00b87a)"></div><div class="svc-ov"><div class="svc-ico"><i class="fas fa-dna"></i></div><h3>WES / WGS Interpretation</h3></div><span class="svc-badge" style="background:#00b87a">Genomic</span></div>
     </div>
   </div>
 </section>
@@ -677,8 +678,8 @@ textarea.fc{resize:vertical;min-height:90px}
     </div>
     <div class="swiper test-sw reveal">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="test-card"><div class="t-av" style="background:linear-gradient(135deg,#0d4f72,#009f6b)">P</div><div class="t-qi">"</div><p class="t-txt">Lakshita explained our genetic test results in a way we finally understood. Her compassion and clarity during a very difficult time made all the difference. We felt supported every step of the way.</p><div class="t-name">Patient — Prenatal Counselling</div><div class="t-role">Ahmedabad, India</div></div></div>
-        <div class="swiper-slide"><div class="test-card"><div class="t-av" style="background:linear-gradient(135deg,#1a5276,#2980b9)">R</div><div class="t-qi">"</div><p class="t-txt">The WES report interpretation was thorough and professional. Lakshita identified what three previous labs had missed and provided a clear management plan. Truly exceptional expertise.</p><div class="t-name">Referring Physician</div><div class="t-role">Delhi, India</div></div></div>
+        <div class="swiper-slide"><div class="test-card"><div class="t-av" style="background:linear-gradient(135deg,#0a3d27,#009f6b)">P</div><div class="t-qi">"</div><p class="t-txt">Lakshita explained our genetic test results in a way we finally understood. Her compassion and clarity during a very difficult time made all the difference. We felt supported every step of the way.</p><div class="t-name">Patient — Prenatal Counselling</div><div class="t-role">Ahmedabad, India</div></div></div>
+        <div class="swiper-slide"><div class="test-card"><div class="t-av" style="background:linear-gradient(135deg,#0a3d27,#009f6b)">R</div><div class="t-qi">"</div><p class="t-txt">The WES report interpretation was thorough and professional. Lakshita identified what three previous labs had missed and provided a clear management plan. Truly exceptional expertise.</p><div class="t-name">Referring Physician</div><div class="t-role">Delhi, India</div></div></div>
         <div class="swiper-slide"><div class="test-card"><div class="t-av" style="background:linear-gradient(135deg,#145a32,#27ae60)">F</div><div class="t-qi">"</div><p class="t-txt">After years of diagnostic odyssey for our child's rare condition, Lakshita's genetic counseling finally gave us answers, support, and a path forward. We are deeply grateful.</p><div class="t-name">Family — Rare Disease Counselling</div><div class="t-role">Gujarat, India</div></div></div>
         <div class="swiper-slide"><div class="test-card"><div class="t-av" style="background:linear-gradient(135deg,#6c3483,#a569bd)">C</div><div class="t-qi">"</div><p class="t-txt">As an oncologist, I regularly refer my hereditary cancer patients to Lakshita. Her BRCA and Lynch Syndrome counseling is excellent — patients return with a much better understanding.</p><div class="t-name">Oncologist — HCG Cancer Hospital</div><div class="t-role">Ahmedabad, India</div></div></div>
         <div class="swiper-slide"><div class="test-card"><div class="t-av" style="background:linear-gradient(135deg,#7b3f00,#d4710a)">S</div><div class="t-qi">"</div><p class="t-txt">The online session was just as thorough as an in-person visit. Lakshita reviewed our entire family history and explained carrier status clearly. Highly recommended.</p><div class="t-name">Patient — Preconception Counselling</div><div class="t-role">Mumbai, India</div></div></div>
@@ -698,10 +699,10 @@ textarea.fc{resize:vertical;min-height:90px}
       <p class="sec-desc">Expert genetic counseling across leading healthcare institutions in India.</p>
     </div>
     <div class="row g-4">
-      <div class="col-lg-3 col-md-6 reveal" style="--d:0ms"><div class="team-card"><div class="team-inner"><div class="team-ph" style="background:linear-gradient(135deg,#0d4f72,#009f6b)">LT<div class="team-ov"><div class="team-soc"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="mailto:mgenescreen@gmail.com"><i class="fas fa-envelope"></i></a><a href="#"><i class="fas fa-book"></i></a></div></div></div></div><div class="team-bd"><div class="team-nm">Lakshita Thakore</div><div class="team-rl">Genetic Counselor</div><div class="team-ds">BGCI Reg. BGC 2022-178 · PhD Scholar<br>MSc Biotechnology · PGD Genetic Counselling</div></div></div></div>
-      <div class="col-lg-3 col-md-6 reveal" style="--d:120ms"><div class="team-card"><div class="team-inner"><div class="team-ph" style="background:linear-gradient(135deg,#1a5276,#2980b9)">NG<div class="team-ov"><div class="team-soc"><a href="#"><i class="fas fa-external-link-alt"></i></a></div></div></div></div><div class="team-bd"><div class="team-nm">Navigene Genetic Science</div><div class="team-rl">HOD — Genomics</div><div class="team-ds">Head of Genomics Division<br>Navigene Genetic Science Pvt. Ltd.</div></div></div></div>
+      <div class="col-lg-3 col-md-6 reveal" style="--d:0ms"><div class="team-card"><div class="team-inner"><div class="team-ph" style="background:linear-gradient(135deg,#0a3d27,#009f6b)">LT<div class="team-ov"><div class="team-soc"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="mailto:mgenescreen@gmail.com"><i class="fas fa-envelope"></i></a><a href="#"><i class="fas fa-book"></i></a></div></div></div></div><div class="team-bd"><div class="team-nm">Lakshita Thakore</div><div class="team-rl">Genetic Counselor</div><div class="team-ds">BGCI Reg. BGC 2022-178 · PhD Scholar<br>MSc Biotechnology · PGD Genetic Counselling</div></div></div></div>
+      <div class="col-lg-3 col-md-6 reveal" style="--d:120ms"><div class="team-card"><div class="team-inner"><div class="team-ph" style="background:linear-gradient(135deg,#0a3d27,#007a52)">NG<div class="team-ov"><div class="team-soc"><a href="#"><i class="fas fa-external-link-alt"></i></a></div></div></div></div><div class="team-bd"><div class="team-nm">Navigene Genetic Science</div><div class="team-rl">HOD — Genomics</div><div class="team-ds">Head of Genomics Division<br>Navigene Genetic Science Pvt. Ltd.</div></div></div></div>
       <div class="col-lg-3 col-md-6 reveal" style="--d:240ms"><div class="team-card"><div class="team-inner"><div class="team-ph" style="background:linear-gradient(135deg,#145a32,#27ae60)">HCG<div class="team-ov"><div class="team-soc"><a href="#"><i class="fas fa-external-link-alt"></i></a></div></div></div></div><div class="team-bd"><div class="team-nm">HCG Cancer Hospital</div><div class="team-rl">Cancer Genetics</div><div class="team-ds">Hereditary Cancer · BRCA<br>Lynch Syndrome · FAP</div></div></div></div>
-      <div class="col-lg-3 col-md-6 reveal" style="--d:360ms"><div class="team-card"><div class="team-inner"><div class="team-ph" style="background:linear-gradient(135deg,#4a148c,#7986cb)">WN<div class="team-ov"><div class="team-soc"><a href="#"><i class="fas fa-external-link-alt"></i></a></div></div></div></div><div class="team-bd"><div class="team-nm">Wings Nova IVF</div><div class="team-rl">Reproductive Genetics</div><div class="team-ds">IVF Genetic Counseling<br>PGT · Recurrent Pregnancy Loss</div></div></div></div>
+      <div class="col-lg-3 col-md-6 reveal" style="--d:360ms"><div class="team-card"><div class="team-inner"><div class="team-ph" style="background:linear-gradient(135deg,#1a4a32,#2d9e6e)">WN<div class="team-ov"><div class="team-soc"><a href="#"><i class="fas fa-external-link-alt"></i></a></div></div></div></div><div class="team-bd"><div class="team-nm">Wings Nova IVF</div><div class="team-rl">Reproductive Genetics</div><div class="team-ds">IVF Genetic Counseling<br>PGT · Recurrent Pregnancy Loss</div></div></div></div>
     </div>
   </div>
 </section>
