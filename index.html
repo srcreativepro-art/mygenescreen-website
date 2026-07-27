@@ -495,9 +495,11 @@ textarea.fc{resize:vertical;min-height:90px}
 /* RESPONSIVE */
 @media(max-width:991px){
   .feat-wrap{margin-top:0}
-  .hero-sw{height:auto;min-height:480px}
+  .hero-sw{height:auto;min-height:480px;max-height:680px}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .dept-grid{grid-template-columns:repeat(3,1fr)}
+  .nav-links a{padding:16px 10px;font-size:11.5px}
+  .nav-sep{padding:0}
 }
 @media(max-width:768px){
   .nav-links{display:none}
@@ -505,11 +507,58 @@ textarea.fc{resize:vertical;min-height:90px}
   .sec{padding:70px 0}
   .dept-grid{grid-template-columns:repeat(2,1fr)}
   .appt-card{padding:28px 20px}
+  .hero-sw{max-height:600px;min-height:420px}
+  .stats-band{padding:44px 0}
+  .sec-ttl{font-size:1.7rem}
 }
 @media(max-width:576px){
+  /* Topbar */
+  .topbar{padding:8px 0}
+  .logo-circle{width:38px;height:38px}
+  .logo-circle img{width:22px !important;height:22px !important}
+  .logo-name{font-size:17px}
+  .logo-tag{display:none}
+  .phone-btn{padding:8px 14px;font-size:12px;gap:6px}
+  /* Hero */
+  .hero-sw{min-height:auto;max-height:580px;height:85svh}
+  .hero-cnt{padding:0 14px}
+  .hero-ey{font-size:9.5px;letter-spacing:.12em;margin-bottom:14px}
+  .hero-h1{font-size:clamp(1.7rem,8vw,2.4rem);margin-bottom:12px}
+  .hero-sub{font-size:.9rem;margin-bottom:22px}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px}
+  .btn-hw,.btn-ho{padding:12px 22px;font-size:12.5px;width:100%;max-width:280px;justify-content:center}
+  .hero-sw .swiper-button-next,.hero-sw .swiper-button-prev{width:36px;height:36px}
+  .hero-sw .swiper-button-next::after,.hero-sw .swiper-button-prev::after{font-size:11px}
+  /* Sections */
+  .sec{padding:50px 0}
+  .sec-hd{margin-bottom:32px}
+  .sec-ttl{font-size:1.5rem}
+  /* Stats */
   .svc-grid{grid-template-columns:1fr}
-  .hero-sw{min-height:380px}
   .dept-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-band{padding:36px 0}
+  .stat-ring,.stat-ring svg{width:120px;height:120px}
+  .stat-n{font-size:1.4rem}
+  .stat-l{font-size:9.5px}
+  /* Feature cards */
+  .feat-card{padding:22px 16px}
+  /* Dept */
+  .dept-item{padding:20px 8px}
+  .dept-nm{font-size:10px}
+  /* Appointment */
+  .appt-card{padding:22px 16px}
+  .appt-card h2{font-size:18px}
+  /* Footer */
+  .footer-main{padding:44px 0 16px}
+  /* Floating buttons */
+  .wa-float{width:48px;height:48px;bottom:16px;right:16px}
+  .wa-float i{font-size:22px}
+  .btt{bottom:72px;right:16px;width:38px;height:38px;font-size:14px}
+  /* Publications */
+  .pub-row{padding:14px 14px;gap:12px}
+  /* News */
+  .news-bd{padding:16px !important}
+  .news-ttl{font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
