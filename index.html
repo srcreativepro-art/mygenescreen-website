@@ -1079,43 +1079,8 @@ textarea.fc{resize:vertical;min-height:90px}
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 // =========================================
-// 1. PRELOADER DNA CANVAS
+// 1. PRELOADER
 // =========================================
-(function(){
-  var c=document.getElementById('pre-canvas'),ctx=c.getContext('2d');
-  var t=0;
-  function drawPre(){
-    ctx.clearRect(0,0,80,160);
-    var pts=12,amp=22,cx=40;
-    for(var i=0;i<=pts;i++){
-      var y=(i/pts)*160;
-      var a=i/pts*Math.PI*3+t;
-      var x1=cx+amp*Math.cos(a),x2=cx-amp*Math.cos(a);
-      var z1=Math.sin(a),z2=-Math.sin(a);
-      var alpha1=0.4+0.5*((z1+1)/2),alpha2=0.4+0.5*((z2+1)/2);
-      var r1=3*(0.5+0.5*((z1+1)/2)),r2=3*(0.5+0.5*((z2+1)/2));
-      // connect base pairs every 3rd
-      if(i%2===0&&i<pts){
-        var na=(i+1)/pts*Math.PI*3+t;
-        var nx1=cx+amp*Math.cos(na),nx2=cx-amp*Math.cos(na);
-        ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(nx1,y+(160/pts));
-        ctx.strokeStyle='rgba(0,159,107,0.15)';ctx.lineWidth=1;ctx.stroke();
-      }
-      // rung
-      ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(x2,y);
-      ctx.strokeStyle='rgba(168,240,212,'+Math.max(alpha1,alpha2)*.3+')';ctx.lineWidth=1.5;ctx.stroke();
-      // strand 1
-      ctx.beginPath();ctx.arc(x1,y,Math.max(r1,1.5),0,Math.PI*2);
-      ctx.fillStyle='rgba(0,159,107,'+alpha1+')';ctx.fill();
-      // strand 2
-      ctx.beginPath();ctx.arc(x2,y,Math.max(r2,1.5),0,Math.PI*2);
-      ctx.fillStyle='rgba(255,255,255,'+alpha2*.7+')';ctx.fill();
-    }
-    t+=0.04;requestAnimationFrame(drawPre);
-  }
-  drawPre();
-})();
-
 window.addEventListener('load',function(){
   setTimeout(function(){
     document.getElementById('preloader').classList.add('done');
