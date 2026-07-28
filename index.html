@@ -761,7 +761,7 @@ textarea.fc{resize:vertical;min-height:90px}
           </div>
           <div class="col-12" id="bookSuccess" style="display:none">
             <div style="background:linear-gradient(135deg,#d4edda,#c3e6cb);border:1px solid #b8dfc5;border-radius:8px;padding:16px 20px;color:#1a5c30;font-weight:600;font-size:14px">
-              <i class="fas fa-check-circle" style="margin-right:8px;color:#28a745"></i> Your consultation request has been sent to <strong>mgenescreen@gmail.com</strong>. We'll confirm within 24 hours via WhatsApp or email.
+              <i class="fas fa-check-circle" style="margin-right:8px;color:#28a745"></i> Your email client has opened with the request pre-filled. Please <strong>click Send</strong> in your email app to confirm your booking. We respond within 24 hours.
             </div>
           </div>
           <div class="col-12" id="bookError" style="display:none">
@@ -1560,66 +1560,69 @@ function filt(btn,cat){
 }
 
 // =========================================
-// 16. FORM SUBMISSION (Formspree → mgenescreen@gmail.com)
+// 16. FORM SUBMISSION → mailto:mgenescreen@gmail.com
 // =========================================
 function submitBookForm(form, e) {
   e.preventDefault();
-  var btn = document.getElementById('bookSubmitBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-  document.getElementById('bookSuccess').style.display = 'none';
+  var name    = (form.querySelector('[name="name"]').value || '').trim();
+  var email   = (form.querySelector('[name="email"]').value || '').trim();
+  var phone   = (form.querySelector('[name="phone"]').value || '').trim();
+  var date    = form.querySelector('[name="preferred_date"]').value;
+  var time    = form.querySelector('[name="preferred_time"]').value;
+  var service = form.querySelector('[name="service"]').value;
+  var mode    = form.querySelector('[name="consultation_mode"]').value;
+  var msg     = (form.querySelector('[name="message"]').value || '').trim();
+
+  if (!name || !email) {
+    alert('Please enter your full name and email address.');
+    return;
+  }
+
+  var subject = 'Consultation Request: ' + (service || 'General') + ' — ' + name;
+  var body = [
+    'Patient Name: ' + name,
+    'Email: ' + email,
+    'Phone / WhatsApp: ' + (phone || 'Not provided'),
+    'Preferred Date: ' + (date || 'Not specified'),
+    'Preferred Time: ' + (time || 'Not specified'),
+    'Service Required: ' + (service || 'Not specified'),
+    'Consultation Mode: ' + (mode || 'Not specified'),
+    '',
+    'Additional Notes:',
+    msg || 'None'
+  ].join('\n');
+
+  window.location.href = 'mailto:mgenescreen@gmail.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body='    + encodeURIComponent(body);
+
   document.getElementById('bookError').style.display = 'none';
-
-  // wire _replyto to the email field value
-  var emailVal = form.querySelector('[name="email"]').value;
-  form.querySelector('[name="_replyto"]').value = emailVal;
-
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
-  }).then(function(res) {
-    if (res.ok) {
-      document.getElementById('bookSuccess').style.display = 'block';
-      form.reset();
-    } else {
-      document.getElementById('bookError').style.display = 'block';
-    }
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
-  }).catch(function() {
-    document.getElementById('bookError').style.display = 'block';
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
-  });
+  document.getElementById('bookSuccess').style.display = 'block';
+  form.reset();
 }
 
 function submitFooterForm(form, e) {
   e.preventDefault();
-  var btn = document.getElementById('footerSubmitBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-  document.getElementById('footerSuccess').style.display = 'none';
-  document.getElementById('footerError').style.display = 'none';
+  var name    = (form.querySelector('[name="name"]').value || '').trim();
+  var email   = (form.querySelector('[name="email"]').value || '').trim();
+  var subject = (form.querySelector('[name="subject"]').value || 'Website Enquiry').trim();
+  var msg     = (form.querySelector('[name="message"]').value || '').trim();
 
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
-  }).then(function(res) {
-    if (res.ok) {
-      document.getElementById('footerSuccess').style.display = 'block';
-      form.reset();
-    } else {
-      document.getElementById('footerError').style.display = 'block';
-    }
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-  }).catch(function() {
-    document.getElementById('footerError').style.display = 'block';
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-  });
+  var mailSubject = subject + (name ? ' — ' + name : '');
+  var mailBody = [
+    'From: ' + name,
+    'Email: ' + email,
+    '',
+    msg
+  ].join('\n');
+
+  window.location.href = 'mailto:mgenescreen@gmail.com'
+    + '?subject=' + encodeURIComponent(mailSubject)
+    + '&body='    + encodeURIComponent(mailBody);
+
+  document.getElementById('footerError').style.display = 'none';
+  document.getElementById('footerSuccess').style.display = 'block';
+  form.reset();
 }
 
 // =========================================
