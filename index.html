@@ -1587,11 +1587,17 @@ function submitBookForm(form, e) {
     msg || 'None'
   ].join('\n');
 
-  window.location.href = 'mailto:mgenescreen@gmail.com'
+  var mailtoHref = 'mailto:mgenescreen@gmail.com'
     + '?subject=' + encodeURIComponent(subject)
     + '&body='    + encodeURIComponent(body);
 
-  document.getElementById('bookError').style.display = 'none';
+  var a = document.createElement('a');
+  a.href = mailtoHref;
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
   document.getElementById('bookSuccess').style.display = 'block';
   form.reset();
 }
