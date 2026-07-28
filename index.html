@@ -704,10 +704,11 @@ textarea.fc{resize:vertical;min-height:90px}
   <div class="container">
     <div class="appt-card reveal">
       <h2>Book a Consultation</h2>
-      <form id="bookForm" action="https://formsubmit.co/ajax/mgenescreen@gmail.com" method="POST" onsubmit="submitBookForm(this,event)">
+      <form id="bookForm" action="https://formsubmit.co/mgenescreen@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New Consultation Request — MyGeneScreen Clinic">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_replyto" value="">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_next" value="https://mygenescreen.in/?sent=1#appointment">
         <div class="row g-3">
           <div class="col-md-6"><input type="text" class="fc" name="name" placeholder="Full Name *" required></div>
           <div class="col-md-6"><input type="email" class="fc" name="email" placeholder="Email Address *" required></div>
@@ -761,7 +762,7 @@ textarea.fc{resize:vertical;min-height:90px}
           </div>
           <div class="col-12" id="bookSuccess" style="display:none">
             <div style="background:linear-gradient(135deg,#d4edda,#c3e6cb);border:1px solid #b8dfc5;border-radius:8px;padding:16px 20px;color:#1a5c30;font-weight:600;font-size:14px">
-              <i class="fas fa-check-circle" style="margin-right:8px;color:#28a745"></i> Your email client has opened with the request pre-filled. Please <strong>click Send</strong> in your email app to confirm your booking. We respond within 24 hours.
+              <i class="fas fa-check-circle" style="margin-right:8px;color:#28a745"></i> Your consultation request has been sent to <strong>mgenescreen@gmail.com</strong>. We will confirm within 24 hours via WhatsApp or email.
             </div>
           </div>
         </div>
@@ -1555,51 +1556,16 @@ function filt(btn,cat){
 }
 
 // =========================================
-// 16. FORM SUBMISSION → mailto:mgenescreen@gmail.com
+// 16. BOOKING FORM — success banner on return from FormSubmit
 // =========================================
-function submitBookForm(form, e) {
-  e.preventDefault();
-  var name    = (form.querySelector('[name="name"]').value || '').trim();
-  var email   = (form.querySelector('[name="email"]').value || '').trim();
-  var phone   = (form.querySelector('[name="phone"]').value || '').trim();
-  var date    = form.querySelector('[name="preferred_date"]').value;
-  var time    = form.querySelector('[name="preferred_time"]').value;
-  var service = form.querySelector('[name="service"]').value;
-  var mode    = form.querySelector('[name="consultation_mode"]').value;
-  var msg     = (form.querySelector('[name="message"]').value || '').trim();
-
-  if (!name || !email) {
-    alert('Please enter your full name and email address.');
-    return;
+function checkFormSuccess() {
+  if (window.location.search.indexOf('sent=1') > -1) {
+    var el = document.getElementById('bookSuccess');
+    if (el) el.style.display = 'block';
+    var appt = document.getElementById('appointment');
+    if (appt) setTimeout(function(){ appt.scrollIntoView({behavior:'smooth'}); }, 200);
+    window.history.replaceState({}, document.title, window.location.pathname);
   }
-
-  var subject = 'Consultation Request: ' + (service || 'General') + ' — ' + name;
-  var body = [
-    'Patient Name: ' + name,
-    'Email: ' + email,
-    'Phone / WhatsApp: ' + (phone || 'Not provided'),
-    'Preferred Date: ' + (date || 'Not specified'),
-    'Preferred Time: ' + (time || 'Not specified'),
-    'Service Required: ' + (service || 'Not specified'),
-    'Consultation Mode: ' + (mode || 'Not specified'),
-    '',
-    'Additional Notes:',
-    msg || 'None'
-  ].join('\n');
-
-  var mailtoHref = 'mailto:mgenescreen@gmail.com'
-    + '?subject=' + encodeURIComponent(subject)
-    + '&body='    + encodeURIComponent(body);
-
-  var a = document.createElement('a');
-  a.href = mailtoHref;
-  a.style.display = 'none';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-
-  document.getElementById('bookSuccess').style.display = 'block';
-  form.reset();
 }
 
 function submitFooterForm(form, e) {
@@ -1664,6 +1630,7 @@ function openGoogleCal(e) {
 // INIT ALL
 // =========================================
 function initAllAnimations(){
+  checkFormSuccess();
   initHeroCanvas();
   initDNACanvas();
   initReveal();
