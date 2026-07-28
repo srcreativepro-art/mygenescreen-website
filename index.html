@@ -704,8 +704,9 @@ textarea.fc{resize:vertical;min-height:90px}
   <div class="container">
     <div class="appt-card reveal">
       <h2>Book a Consultation</h2>
-      <form id="bookForm" action="https://formspree.io/mgenescreen@gmail.com" method="POST" onsubmit="submitBookForm(this,event)">
+      <form id="bookForm" action="https://formsubmit.co/ajax/mgenescreen@gmail.com" method="POST" onsubmit="submitBookForm(this,event)">
         <input type="hidden" name="_subject" value="New Consultation Request — MyGeneScreen Clinic">
+        <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_replyto" value="">
         <div class="row g-3">
           <div class="col-md-6"><input type="text" class="fc" name="name" placeholder="Full Name *" required></div>
@@ -1161,8 +1162,9 @@ textarea.fc{resize:vertical;min-height:90px}
       </div>
       <div class="col-lg-5 reveal right">
         <div class="fw"><h4>Any Questions?</h4>
-          <form class="f-form" id="footerForm" action="https://formspree.io/mgenescreen@gmail.com" method="POST" onsubmit="submitFooterForm(this,event)">
+          <form class="f-form" id="footerForm" action="https://formsubmit.co/ajax/mgenescreen@gmail.com" method="POST" onsubmit="submitFooterForm(this,event)">
             <input type="hidden" name="_subject" value="Message via MyGeneScreen Website">
+            <input type="hidden" name="_captcha" value="false">
             <div class="row g-2"><div class="col-6"><input type="text" name="name" placeholder="Full Name"></div><div class="col-6"><input type="email" name="email" placeholder="Email Address"></div></div>
             <input type="text" name="subject" placeholder="Subject">
             <textarea rows="4" name="message" placeholder="Your message..."></textarea>
