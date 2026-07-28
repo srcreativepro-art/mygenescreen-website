@@ -704,69 +704,71 @@ textarea.fc{resize:vertical;min-height:90px}
   <div class="container">
     <div class="appt-card reveal">
       <h2>Book a Consultation</h2>
-      <form id="bookForm" action="https://formsubmit.co/mgenescreen@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Consultation Request — MyGeneScreen Clinic">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="box">
-        <input type="hidden" name="_next" value="https://mygenescreen.in/?sent=1#appointment">
-        <div class="row g-3">
-          <div class="col-md-6"><input type="text" class="fc" name="name" placeholder="Full Name *" required></div>
-          <div class="col-md-6"><input type="email" class="fc" name="email" placeholder="Email Address *" required></div>
-          <div class="col-md-4"><input type="tel" class="fc" name="phone" placeholder="Phone / WhatsApp *"></div>
-          <div class="col-md-4"><input type="date" class="fc" name="preferred_date" id="bookDate"></div>
-          <div class="col-md-4">
-            <select class="fc" name="preferred_time" id="bookTime">
-              <option value="">— Preferred Time —</option>
-              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
-              <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
-              <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
-              <option>7:00 PM</option><option>8:00 PM</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <select class="fc" name="service" id="bookService">
-              <option value="">— Service Required —</option>
-              <option>Pre-Test Genetic Counselling</option><option>Post-Test Genetic Counselling</option>
-              <option>Prenatal Genetic Counselling</option><option>Preconception Counselling</option>
-              <option>Carrier Screening</option><option>Pediatric Genetics</option>
-              <option>Cancer Genetics</option><option>Neurogenetics</option>
-              <option>Reproductive Genetics</option><option>Rare Disease Counselling</option>
-              <option>WES Report Interpretation</option><option>WGS Report Interpretation</option>
-              <option>Variant / CNV Interpretation</option><option>Family Risk Assessment</option>
-              <option>Clinical Report Review</option>
-              <option>Adult Genetic Counselling</option>
-              <option>Preimplantation Genetic Counselling (PGT)</option>
-              <option>Premarital Genetic Counseling</option>
-              <option>Autism Related Counselling</option>
-              <option>Pediatric Psychology Counselling</option>
-              <option>Genomic Data Analysis</option>
-              <option>Genetic Report Reanalysis</option>
-              <option>Raw Data Analysis (FastQ/VCF)</option>
-              <option>Somatic Data Analysis</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <select class="fc" name="consultation_mode">
-              <option value="">— Consultation Mode —</option>
-              <option>In-Person (Ahmedabad Clinic)</option>
-              <option>Video Counselling (Online)</option>
-              <option>Tele-Counselling (Phone)</option>
-            </select>
-          </div>
-          <div class="col-12"><textarea class="fc" name="message" rows="3" placeholder="Brief description of your genetic concern..."></textarea></div>
-          <div class="col-12 d-flex align-items-center gap-3 flex-wrap">
-            <button type="submit" class="btn-p mag-btn" id="bookSubmitBtn"><i class="fas fa-paper-plane"></i> Submit Request</button>
-            <a href="#" class="btn-ho mag-btn" id="gcalBtn" onclick="openGoogleCal(event)" style="font-size:13px;padding:12px 22px"><i class="fab fa-google" style="margin-right:6px"></i> Schedule via Google Calendar</a>
-            <span style="font-size:13px;color:var(--mid)">We confirm within 24 hours via WhatsApp or email.</span>
-          </div>
-          <div class="col-12" id="bookSuccess" style="display:none">
-            <div style="background:linear-gradient(135deg,#d4edda,#c3e6cb);border:1px solid #b8dfc5;border-radius:8px;padding:16px 20px;color:#1a5c30;font-weight:600;font-size:14px">
-              <i class="fas fa-check-circle" style="margin-right:8px;color:#28a745"></i> Your consultation request has been sent to <strong>mgenescreen@gmail.com</strong>. We will confirm within 24 hours via WhatsApp or email.
-            </div>
+      <p style="font-size:13.5px;color:var(--mid);margin-bottom:24px">Pick an available slot from the calendar, then fill your details and confirm.</p>
+      <div class="row g-4">
+        <!-- LEFT: Google Calendar live availability -->
+        <div class="col-lg-7">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cy);margin-bottom:10px"><i class="fas fa-calendar-check" style="margin-right:6px"></i>Step 1 — Select an Available Slot</div>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid var(--bd)">
+            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ292a_GoZb78Rsfp_xwsC8J7X9IDgDTKaTvbFiKNI4QUCSpsPnphn98DRJ4TGLUr2sUumuAm6Qd?gv=true" frameborder="0" style="width:100%;height:580px;display:block"></iframe>
           </div>
         </div>
-      </form>
+        <!-- RIGHT: Patient details form -->
+        <div class="col-lg-5">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cy);margin-bottom:10px"><i class="fas fa-user-edit" style="margin-right:6px"></i>Step 2 — Your Details</div>
+          <form id="bookForm" action="https://formsubmit.co/mgenescreen@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Consultation Request — MyGeneScreen Clinic">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_next" value="https://mygenescreen.in/?sent=1#appointment">
+            <div class="row g-3">
+              <div class="col-12"><input type="text" class="fc" name="name" placeholder="Full Name *" required></div>
+              <div class="col-12"><input type="email" class="fc" name="email" placeholder="Email Address *" required></div>
+              <div class="col-12"><input type="tel" class="fc" name="phone" placeholder="Phone / WhatsApp *"></div>
+              <div class="col-12">
+                <select class="fc" name="service">
+                  <option value="">— Service Required —</option>
+                  <option>Pre-Test Genetic Counselling</option><option>Post-Test Genetic Counselling</option>
+                  <option>Prenatal Genetic Counselling</option><option>Preconception Counselling</option>
+                  <option>Carrier Screening</option><option>Pediatric Genetics</option>
+                  <option>Cancer Genetics</option><option>Neurogenetics</option>
+                  <option>Reproductive Genetics</option><option>Rare Disease Counselling</option>
+                  <option>WES Report Interpretation</option><option>WGS Report Interpretation</option>
+                  <option>Variant / CNV Interpretation</option><option>Family Risk Assessment</option>
+                  <option>Clinical Report Review</option>
+                  <option>Adult Genetic Counselling</option>
+                  <option>Preimplantation Genetic Counselling (PGT)</option>
+                  <option>Premarital Genetic Counseling</option>
+                  <option>Autism Related Counselling</option>
+                  <option>Pediatric Psychology Counselling</option>
+                  <option>Genomic Data Analysis</option>
+                  <option>Genetic Report Reanalysis</option>
+                  <option>Raw Data Analysis (FastQ/VCF)</option>
+                  <option>Somatic Data Analysis</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <select class="fc" name="consultation_mode">
+                  <option value="">— Consultation Mode —</option>
+                  <option>In-Person (Ahmedabad Clinic)</option>
+                  <option>Video Counselling (Online)</option>
+                  <option>Tele-Counselling (Phone)</option>
+                </select>
+              </div>
+              <div class="col-12"><textarea class="fc" name="message" rows="4" placeholder="Brief description of your genetic concern..."></textarea></div>
+              <div class="col-12">
+                <button type="submit" class="btn-p mag-btn w-100" style="justify-content:center"><i class="fas fa-check-circle"></i> Confirm Booking</button>
+              </div>
+              <div class="col-12" id="bookSuccess" style="display:none">
+                <div style="background:linear-gradient(135deg,#d4edda,#c3e6cb);border:1px solid #b8dfc5;border-radius:8px;padding:14px 18px;color:#1a5c30;font-weight:600;font-size:13px">
+                  <i class="fas fa-check-circle" style="margin-right:8px;color:#28a745"></i> Booking confirmed! Your request has been sent to <strong>mgenescreen@gmail.com</strong>. We will confirm within 24 hours.
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1592,39 +1594,6 @@ function submitFooterForm(form, e) {
   form.reset();
 }
 
-// =========================================
-// 17. GOOGLE CALENDAR SCHEDULING
-// =========================================
-function openGoogleCal(e) {
-  e.preventDefault();
-  var date = document.getElementById('bookDate').value;
-  var time = document.getElementById('bookTime').value;
-  var service = document.getElementById('bookService').value || 'Genetic Counseling Consultation';
-
-  var title = encodeURIComponent('Genetic Counseling Consultation — MyGeneScreen');
-  var details = encodeURIComponent(
-    'Service: ' + service + '\n\n' +
-    'Consultant: CGC Lakshita Thakore (BGCI Reg. BGC 2022-178)\n' +
-    'Clinic: MyGeneScreen Clinic, Ahmedabad\n' +
-    'Phone: +91 97172 10124\n' +
-    'Email: mgenescreen@gmail.com\n\n' +
-    'Please include your name and contact number in the event description.'
-  );
-
-  var gcalUrl = 'https://calendar.google.com/calendar/r/eventedit' +
-    '?text=' + title +
-    '&details=' + details +
-    '&add=mgenescreen@gmail.com' +
-    '&sf=true';
-
-  // If date/time selected, pre-fill the date on Google Calendar
-  if (date) {
-    var d = date.replace(/-/g, '');
-    gcalUrl += '&dates=' + d + '/' + d;
-  }
-
-  window.open(gcalUrl, '_blank');
-}
 
 // =========================================
 // INIT ALL
