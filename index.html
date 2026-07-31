@@ -172,6 +172,20 @@ body{font-family:'Lato','Gill Sans',Calibri,sans-serif;color:#444;overflow-x:hid
 h1,h2,h3,h4,h5{line-height:1.25;font-weight:700;font-family:'Montserrat','Gill Sans',Calibri,sans-serif}
 a{text-decoration:none}
 
+/* ACHIEVEMENT TICKER */
+.ach-ticker{background:linear-gradient(90deg,#020d06 0%,#071910 50%,#020d06 100%);border-top:1px solid rgba(0,159,107,.25);border-bottom:1px solid rgba(0,159,107,.25);padding:13px 0;overflow:hidden;position:relative;z-index:10}
+.ach-ticker::before,.ach-ticker::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none}
+.ach-ticker::before{left:0;background:linear-gradient(90deg,#020d06,transparent)}
+.ach-ticker::after{right:0;background:linear-gradient(-90deg,#020d06,transparent)}
+.ach-track{display:flex;width:max-content;animation:ach-scroll 55s linear infinite}
+.ach-track:hover{animation-play-state:paused}
+.ach-seg{display:flex;align-items:center;gap:14px;padding:0 52px;white-space:nowrap}
+.ach-seg .ach-icon{color:#fbbf24;font-size:13px;flex-shrink:0;filter:drop-shadow(0 0 6px rgba(251,191,36,.5))}
+.ach-seg .ach-label{color:rgba(255,255,255,.5);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin-right:4px}
+.ach-seg .ach-txt{color:rgba(255,255,255,.82);font-size:13px;font-family:'Lato',sans-serif;letter-spacing:.015em}
+.ach-dot{width:4px;height:4px;border-radius:50%;background:rgba(0,159,107,.6);flex-shrink:0;margin:0 28px}
+@keyframes ach-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 /* SCROLL PROGRESS */
 #scroll-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cy),#4fd4a8,var(--cy));width:0%;z-index:100000;transition:width .1s linear;box-shadow:0 0 10px var(--cy)}
 
@@ -678,6 +692,38 @@ textarea.fc{resize:vertical;min-height:90px}
   <div class="swiper-pagination"></div>
 </div>
 </section>
+
+<!-- ACHIEVEMENT TICKER -->
+<div class="ach-ticker">
+  <div class="ach-track">
+    <!-- copy 1 -->
+    <div class="ach-seg">
+      <i class="fas fa-medal ach-icon"></i>
+      <span class="ach-label">India's First</span>
+      <span class="ach-txt">With five years of dedicated service at Army Hospital (Research &amp; Referral), New Delhi, I had the privilege of serving as <strong style="color:#4fd4a8;font-weight:700">India's First Genetic Counselor</strong>, contributing to the establishment of comprehensive genetic services — from patient counseling and clinical genetics to developing both wet-laboratory and genomic bioinformatics (dry-laboratory) workflows in collaboration with Clinical Geneticists.</span>
+    </div>
+    <div class="ach-dot"></div>
+    <div class="ach-seg">
+      <i class="fas fa-shield-alt ach-icon" style="color:#a78bfa"></i>
+      <span class="ach-label">Army Hospital</span>
+      <span class="ach-txt">Army Hospital (Research &amp; Referral), New Delhi · 5 Years · <strong style="color:#4fd4a8;font-weight:700">India's First Genetic Counselor</strong> · Wet-Lab &amp; Bioinformatics Workflows · Collaboration with Clinical Geneticists</span>
+    </div>
+    <div class="ach-dot"></div>
+    <!-- copy 2 (exact duplicate — seamless loop) -->
+    <div class="ach-seg">
+      <i class="fas fa-medal ach-icon"></i>
+      <span class="ach-label">India's First</span>
+      <span class="ach-txt">With five years of dedicated service at Army Hospital (Research &amp; Referral), New Delhi, I had the privilege of serving as <strong style="color:#4fd4a8;font-weight:700">India's First Genetic Counselor</strong>, contributing to the establishment of comprehensive genetic services — from patient counseling and clinical genetics to developing both wet-laboratory and genomic bioinformatics (dry-laboratory) workflows in collaboration with Clinical Geneticists.</span>
+    </div>
+    <div class="ach-dot"></div>
+    <div class="ach-seg">
+      <i class="fas fa-shield-alt ach-icon" style="color:#a78bfa"></i>
+      <span class="ach-label">Army Hospital</span>
+      <span class="ach-txt">Army Hospital (Research &amp; Referral), New Delhi · 5 Years · <strong style="color:#4fd4a8;font-weight:700">India's First Genetic Counselor</strong> · Wet-Lab &amp; Bioinformatics Workflows · Collaboration with Clinical Geneticists</span>
+    </div>
+    <div class="ach-dot"></div>
+  </div>
+</div>
 
 <!-- FEATURE BOXES -->
 <div class="feat-wrap">
