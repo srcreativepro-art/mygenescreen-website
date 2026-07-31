@@ -172,24 +172,45 @@ body{font-family:'Lato','Gill Sans',Calibri,sans-serif;color:#444;overflow-x:hid
 h1,h2,h3,h4,h5{line-height:1.25;font-weight:700;font-family:'Montserrat','Gill Sans',Calibri,sans-serif}
 a{text-decoration:none}
 
-/* ACHIEVEMENT ANNOUNCEMENT BAR */
-.achieve-bar{background:linear-gradient(90deg,#0a1505 0%,#0d1f08 35%,#112509 65%,#0a1505 100%);border-bottom:2px solid rgba(251,191,36,.45);position:relative;z-index:500;overflow:hidden}
-.achieve-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,rgba(251,191,36,.04));pointer-events:none}
-.achieve-inner{display:flex;align-items:stretch;min-height:48px}
-.achieve-badge{background:linear-gradient(135deg,#92400e,#b45309,#d97706,#fbbf24);color:#000;font-size:9.5px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;padding:0 22px;display:flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;position:relative}
-.achieve-badge::after{content:'';position:absolute;right:-12px;top:0;height:100%;width:24px;background:linear-gradient(135deg,#d97706 50%,transparent 50%);z-index:1}
-.achieve-badge i{font-size:14px;animation:medal-pulse 2.2s ease-in-out infinite}
-@keyframes medal-pulse{0%,100%{transform:scale(1) rotate(-5deg)}50%{transform:scale(1.2) rotate(5deg)}}
-.achieve-scroll{flex:1;overflow:hidden;position:relative;display:flex;align-items:center}
-.achieve-scroll::before,.achieve-scroll::after{content:'';position:absolute;top:0;height:100%;width:60px;z-index:2;pointer-events:none}
-.achieve-scroll::before{left:18px;background:linear-gradient(90deg,#0a1505,transparent)}
-.achieve-scroll::after{right:0;background:linear-gradient(-90deg,#0a1505,transparent)}
-.achieve-track{display:flex;width:max-content;animation:ach-scroll 60s linear infinite}
-.achieve-track:hover{animation-play-state:paused}
-.achieve-item{display:flex;align-items:center;gap:10px;padding:0 56px;white-space:nowrap;color:rgba(255,255,255,.78);font-size:13px;font-family:'Lato',sans-serif;letter-spacing:.02em}
-.achieve-item .ach-hi{color:#fbbf24;font-weight:700}
-.achieve-item .ach-sep{color:rgba(251,191,36,.4);margin:0 6px;font-size:16px}
-@keyframes ach-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* ACHIEVEMENT SPOTLIGHT SECTION */
+.spotlight{background:linear-gradient(135deg,#050e04 0%,#0a1a08 40%,#0d2209 70%,#050e04 100%);padding:56px 0;position:relative;overflow:hidden;border-top:1px solid rgba(251,191,36,.2);border-bottom:1px solid rgba(251,191,36,.2)}
+.spotlight::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(251,191,36,.03) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.spotlight::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(251,191,36,.06) 0%,transparent 65%);pointer-events:none}
+.spot-inner{position:relative;z-index:2;text-align:center;max-width:860px;margin:0 auto;padding:0 24px}
+.spot-tag{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#92400e,#b45309,#d97706);color:#000;font-size:10px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;padding:8px 22px;border-radius:100px;margin-bottom:28px;box-shadow:0 4px 20px rgba(217,119,6,.4)}
+.spot-tag i{font-size:14px;animation:spot-medal 2s ease-in-out infinite}
+@keyframes spot-medal{0%,100%{transform:scale(1) rotate(-8deg)}50%{transform:scale(1.25) rotate(8deg)}}
+.spot-h{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
+.spot-h span{color:#fbbf24;display:block}
+.spot-loc{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,191,36,.65);margin-bottom:28px;font-family:'Montserrat',sans-serif}
+.spot-loc i{margin:0 8px;opacity:.5}
+.spot-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,#fbbf24,transparent);margin:0 auto 28px}
+.spot-txt{font-size:15.5px;color:rgba(255,255,255,.75);line-height:1.85;font-family:'Lato',sans-serif;max-width:760px;margin:0 auto}
+.spot-txt strong{color:#4fd4a8;font-weight:700}
+
+/* ACHIEVEMENT POPUP */
+.ach-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:99990;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);animation:popFadeIn .5s ease both}
+@keyframes popFadeIn{from{opacity:0}to{opacity:1}}
+.ach-popup{background:linear-gradient(145deg,#050e04,#0a1a08,#0d2209);border:1px solid rgba(251,191,36,.45);border-radius:20px;max-width:640px;width:100%;padding:48px 44px;position:relative;text-align:center;box-shadow:0 0 80px rgba(251,191,36,.18),0 40px 80px rgba(0,0,0,.6);animation:popSlideUp .5s .1s ease both;overflow:hidden}
+@keyframes popSlideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.ach-popup::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.025) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.ach-popup::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(251,191,36,.07) 0%,transparent 65%);pointer-events:none}
+.pop-close{position:absolute;top:16px;right:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .25s;z-index:2}
+.pop-close:hover{background:rgba(251,191,36,.2);border-color:rgba(251,191,36,.5);color:#fbbf24}
+.pop-medal{font-size:52px;margin-bottom:16px;display:block;animation:medalBounce 1.6s ease-in-out infinite}
+@keyframes medalBounce{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+.pop-tag{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#92400e,#d97706,#fbbf24);color:#000;font-size:9px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:20px;box-shadow:0 4px 16px rgba(217,119,6,.45)}
+.pop-h{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(1.9rem,5vw,2.9rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:6px}
+.pop-h em{color:#fbbf24;font-style:normal}
+.pop-loc{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(251,191,36,.6);margin-bottom:22px;font-family:'Montserrat',sans-serif}
+.pop-divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,#fbbf24,transparent);margin:0 auto 22px}
+.pop-body{font-size:14px;color:rgba(255,255,255,.7);line-height:1.85;font-family:'Lato',sans-serif;margin-bottom:28px;position:relative;z-index:2}
+.pop-body strong{color:#4fd4a8;font-weight:700}
+.pop-timer{height:3px;background:rgba(255,255,255,.08);border-radius:3px;margin-bottom:24px;overflow:hidden}
+.pop-timer-bar{height:100%;background:linear-gradient(90deg,#d97706,#fbbf24);border-radius:3px;animation:popTimer 8s linear forwards}
+@keyframes popTimer{from{width:100%}to{width:0%}}
+.pop-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#007a52,#009f6b);color:#fff;font-size:13px;font-weight:700;padding:12px 28px;border-radius:100px;text-decoration:none;transition:all .3s;box-shadow:0 4px 20px rgba(0,159,107,.35)}
+.pop-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,159,107,.5);color:#fff}
 
 /* SCROLL PROGRESS */
 #scroll-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cy),#4fd4a8,var(--cy));width:0%;z-index:100000;transition:width .1s linear;box-shadow:0 0 10px var(--cy)}
@@ -599,36 +620,24 @@ textarea.fc{resize:vertical;min-height:90px}
   <div class="pre-txt">Loading...</div>
 </div>
 
+<!-- ACHIEVEMENT POPUP -->
+<div class="ach-popup-overlay" id="achPopup" style="display:none">
+  <div class="ach-popup">
+    <button class="pop-close" onclick="closeAchPopup()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <span class="pop-medal">🏅</span>
+    <div class="pop-tag"><i class="fas fa-star"></i> Landmark Achievement</div>
+    <h2 class="pop-h">India's <em>First Genetic Counselor</em></h2>
+    <div class="pop-loc"><i class="fas fa-shield-alt" style="margin-right:6px;color:#a78bfa"></i>Army Hospital (Research &amp; Referral), New Delhi &nbsp;·&nbsp; 5 Years of Service</div>
+    <div class="pop-divider"></div>
+    <p class="pop-body">With five years of dedicated service at Army Hospital (R&amp;R), New Delhi, I had the privilege of serving as <strong>India's First Genetic Counselor</strong> — contributing to the establishment of comprehensive genetic services, from patient counseling and clinical genetics to developing <strong>wet-laboratory</strong> and <strong>genomic bioinformatics</strong> workflows in collaboration with Clinical Geneticists.</p>
+    <div class="pop-timer"><div class="pop-timer-bar"></div></div>
+    <a href="#about" class="pop-cta" onclick="closeAchPopup()"><i class="fas fa-arrow-right"></i> Read Full Story</a>
+  </div>
+</div>
+
 <!-- FLOATING -->
 <a href="https://wa.me/919717210124" class="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
-
-<!-- ACHIEVEMENT BAR — first element on page -->
-<div class="achieve-bar">
-  <div class="achieve-inner">
-    <div class="achieve-badge">
-      <i class="fas fa-medal"></i> India's First
-    </div>
-    <div class="achieve-scroll">
-      <div class="achieve-track">
-        <!-- set 1 -->
-        <div class="achieve-item">
-          With five years of dedicated service at <span class="ach-hi">Army Hospital (R&amp;R), New Delhi</span><span class="ach-sep">·</span>I had the privilege of serving as <span class="ach-hi">India's First Genetic Counselor</span><span class="ach-sep">·</span>Contributing to comprehensive genetic services — patient counseling, clinical genetics, wet-laboratory &amp; genomic bioinformatics workflows in collaboration with Clinical Geneticists.
-        </div>
-        <div class="achieve-item" style="padding:0 40px">
-          <i class="fas fa-shield-alt" style="color:#a78bfa;margin-right:10px"></i><span class="ach-hi">Army Hospital (Research &amp; Referral), New Delhi</span><span class="ach-sep">·</span>5 Years<span class="ach-sep">·</span><span class="ach-hi">India's First Genetic Counselor</span><span class="ach-sep">·</span>Wet-Lab &amp; Bioinformatics<span class="ach-sep">·</span>Clinical Genetics
-        </div>
-        <!-- set 2 — exact duplicate for seamless loop -->
-        <div class="achieve-item">
-          With five years of dedicated service at <span class="ach-hi">Army Hospital (R&amp;R), New Delhi</span><span class="ach-sep">·</span>I had the privilege of serving as <span class="ach-hi">India's First Genetic Counselor</span><span class="ach-sep">·</span>Contributing to comprehensive genetic services — patient counseling, clinical genetics, wet-laboratory &amp; genomic bioinformatics workflows in collaboration with Clinical Geneticists.
-        </div>
-        <div class="achieve-item" style="padding:0 40px">
-          <i class="fas fa-shield-alt" style="color:#a78bfa;margin-right:10px"></i><span class="ach-hi">Army Hospital (Research &amp; Referral), New Delhi</span><span class="ach-sep">·</span>5 Years<span class="ach-sep">·</span><span class="ach-hi">India's First Genetic Counselor</span><span class="ach-sep">·</span>Wet-Lab &amp; Bioinformatics<span class="ach-sep">·</span>Clinical Genetics
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- TOP BAR -->
 <div class="topbar">
@@ -724,6 +733,17 @@ textarea.fc{resize:vertical;min-height:90px}
   <div class="swiper-pagination"></div>
 </div>
 </section>
+
+<!-- ACHIEVEMENT SPOTLIGHT -->
+<div class="spotlight">
+  <div class="spot-inner">
+    <div class="spot-tag"><i class="fas fa-medal"></i> Landmark Achievement</div>
+    <h2 class="spot-h">India's <span>First Genetic Counselor</span></h2>
+    <div class="spot-loc"><i class="fas fa-shield-alt"></i> Army Hospital (Research &amp; Referral), New Delhi <i class="fas fa-circle" style="font-size:5px"></i> 5 Years of Service</div>
+    <div class="spot-divider"></div>
+    <p class="spot-txt">With five years of dedicated service at Army Hospital (Research &amp; Referral), New Delhi, I had the privilege of serving as <strong>India's First Genetic Counselor</strong>, contributing to the establishment of comprehensive genetic services — from patient counseling and clinical genetics to developing both <strong>wet-laboratory</strong> and <strong>genomic bioinformatics (dry-laboratory)</strong> workflows in collaboration with Clinical Geneticists.</p>
+  </div>
+</div>
 
 <!-- FEATURE BOXES -->
 <div class="feat-wrap">
@@ -1222,8 +1242,26 @@ window.addEventListener('load',function(){
   setTimeout(function(){
     document.getElementById('preloader').classList.add('done');
     initAllAnimations();
+    // Show achievement popup after preloader clears
+    setTimeout(showAchPopup, 600);
   },800);
 });
+
+function showAchPopup(){
+  var p = document.getElementById('achPopup');
+  if(!p) return;
+  p.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  // Auto-close after 8s (matches timer bar animation)
+  setTimeout(closeAchPopup, 8000);
+}
+function closeAchPopup(){
+  var p = document.getElementById('achPopup');
+  if(!p) return;
+  p.style.opacity = '0';
+  p.style.transition = 'opacity .35s';
+  setTimeout(function(){ p.style.display = 'none'; document.body.style.overflow = ''; }, 350);
+}
 
 // =========================================
 // 2. HERO CANVAS — PARTICLES + FLOATING DOTS
