@@ -172,18 +172,23 @@ body{font-family:'Lato','Gill Sans',Calibri,sans-serif;color:#444;overflow-x:hid
 h1,h2,h3,h4,h5{line-height:1.25;font-weight:700;font-family:'Montserrat','Gill Sans',Calibri,sans-serif}
 a{text-decoration:none}
 
-/* ACHIEVEMENT TICKER */
-.ach-ticker{background:linear-gradient(90deg,#020d06 0%,#071910 50%,#020d06 100%);border-top:1px solid rgba(0,159,107,.25);border-bottom:1px solid rgba(0,159,107,.25);padding:13px 0;overflow:hidden;position:relative;z-index:10}
-.ach-ticker::before,.ach-ticker::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none}
-.ach-ticker::before{left:0;background:linear-gradient(90deg,#020d06,transparent)}
-.ach-ticker::after{right:0;background:linear-gradient(-90deg,#020d06,transparent)}
-.ach-track{display:flex;width:max-content;animation:ach-scroll 55s linear infinite}
-.ach-track:hover{animation-play-state:paused}
-.ach-seg{display:flex;align-items:center;gap:14px;padding:0 52px;white-space:nowrap}
-.ach-seg .ach-icon{color:#fbbf24;font-size:13px;flex-shrink:0;filter:drop-shadow(0 0 6px rgba(251,191,36,.5))}
-.ach-seg .ach-label{color:rgba(255,255,255,.5);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin-right:4px}
-.ach-seg .ach-txt{color:rgba(255,255,255,.82);font-size:13px;font-family:'Lato',sans-serif;letter-spacing:.015em}
-.ach-dot{width:4px;height:4px;border-radius:50%;background:rgba(0,159,107,.6);flex-shrink:0;margin:0 28px}
+/* ACHIEVEMENT ANNOUNCEMENT BAR */
+.achieve-bar{background:linear-gradient(90deg,#0a1505 0%,#0d1f08 35%,#112509 65%,#0a1505 100%);border-bottom:2px solid rgba(251,191,36,.45);position:relative;z-index:500;overflow:hidden}
+.achieve-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,rgba(251,191,36,.04));pointer-events:none}
+.achieve-inner{display:flex;align-items:stretch;min-height:48px}
+.achieve-badge{background:linear-gradient(135deg,#92400e,#b45309,#d97706,#fbbf24);color:#000;font-size:9.5px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;padding:0 22px;display:flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;position:relative}
+.achieve-badge::after{content:'';position:absolute;right:-12px;top:0;height:100%;width:24px;background:linear-gradient(135deg,#d97706 50%,transparent 50%);z-index:1}
+.achieve-badge i{font-size:14px;animation:medal-pulse 2.2s ease-in-out infinite}
+@keyframes medal-pulse{0%,100%{transform:scale(1) rotate(-5deg)}50%{transform:scale(1.2) rotate(5deg)}}
+.achieve-scroll{flex:1;overflow:hidden;position:relative;display:flex;align-items:center}
+.achieve-scroll::before,.achieve-scroll::after{content:'';position:absolute;top:0;height:100%;width:60px;z-index:2;pointer-events:none}
+.achieve-scroll::before{left:18px;background:linear-gradient(90deg,#0a1505,transparent)}
+.achieve-scroll::after{right:0;background:linear-gradient(-90deg,#0a1505,transparent)}
+.achieve-track{display:flex;width:max-content;animation:ach-scroll 60s linear infinite}
+.achieve-track:hover{animation-play-state:paused}
+.achieve-item{display:flex;align-items:center;gap:10px;padding:0 56px;white-space:nowrap;color:rgba(255,255,255,.78);font-size:13px;font-family:'Lato',sans-serif;letter-spacing:.02em}
+.achieve-item .ach-hi{color:#fbbf24;font-weight:700}
+.achieve-item .ach-sep{color:rgba(251,191,36,.4);margin:0 6px;font-size:16px}
 @keyframes ach-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* SCROLL PROGRESS */
@@ -598,6 +603,33 @@ textarea.fc{resize:vertical;min-height:90px}
 <a href="https://wa.me/919717210124" class="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
 
+<!-- ACHIEVEMENT BAR — first element on page -->
+<div class="achieve-bar">
+  <div class="achieve-inner">
+    <div class="achieve-badge">
+      <i class="fas fa-medal"></i> India's First
+    </div>
+    <div class="achieve-scroll">
+      <div class="achieve-track">
+        <!-- set 1 -->
+        <div class="achieve-item">
+          With five years of dedicated service at <span class="ach-hi">Army Hospital (R&amp;R), New Delhi</span><span class="ach-sep">·</span>I had the privilege of serving as <span class="ach-hi">India's First Genetic Counselor</span><span class="ach-sep">·</span>Contributing to comprehensive genetic services — patient counseling, clinical genetics, wet-laboratory &amp; genomic bioinformatics workflows in collaboration with Clinical Geneticists.
+        </div>
+        <div class="achieve-item" style="padding:0 40px">
+          <i class="fas fa-shield-alt" style="color:#a78bfa;margin-right:10px"></i><span class="ach-hi">Army Hospital (Research &amp; Referral), New Delhi</span><span class="ach-sep">·</span>5 Years<span class="ach-sep">·</span><span class="ach-hi">India's First Genetic Counselor</span><span class="ach-sep">·</span>Wet-Lab &amp; Bioinformatics<span class="ach-sep">·</span>Clinical Genetics
+        </div>
+        <!-- set 2 — exact duplicate for seamless loop -->
+        <div class="achieve-item">
+          With five years of dedicated service at <span class="ach-hi">Army Hospital (R&amp;R), New Delhi</span><span class="ach-sep">·</span>I had the privilege of serving as <span class="ach-hi">India's First Genetic Counselor</span><span class="ach-sep">·</span>Contributing to comprehensive genetic services — patient counseling, clinical genetics, wet-laboratory &amp; genomic bioinformatics workflows in collaboration with Clinical Geneticists.
+        </div>
+        <div class="achieve-item" style="padding:0 40px">
+          <i class="fas fa-shield-alt" style="color:#a78bfa;margin-right:10px"></i><span class="ach-hi">Army Hospital (Research &amp; Referral), New Delhi</span><span class="ach-sep">·</span>5 Years<span class="ach-sep">·</span><span class="ach-hi">India's First Genetic Counselor</span><span class="ach-sep">·</span>Wet-Lab &amp; Bioinformatics<span class="ach-sep">·</span>Clinical Genetics
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="container">
@@ -692,38 +724,6 @@ textarea.fc{resize:vertical;min-height:90px}
   <div class="swiper-pagination"></div>
 </div>
 </section>
-
-<!-- ACHIEVEMENT TICKER -->
-<div class="ach-ticker">
-  <div class="ach-track">
-    <!-- copy 1 -->
-    <div class="ach-seg">
-      <i class="fas fa-medal ach-icon"></i>
-      <span class="ach-label">India's First</span>
-      <span class="ach-txt">With five years of dedicated service at Army Hospital (Research &amp; Referral), New Delhi, I had the privilege of serving as <strong style="color:#4fd4a8;font-weight:700">India's First Genetic Counselor</strong>, contributing to the establishment of comprehensive genetic services — from patient counseling and clinical genetics to developing both wet-laboratory and genomic bioinformatics (dry-laboratory) workflows in collaboration with Clinical Geneticists.</span>
-    </div>
-    <div class="ach-dot"></div>
-    <div class="ach-seg">
-      <i class="fas fa-shield-alt ach-icon" style="color:#a78bfa"></i>
-      <span class="ach-label">Army Hospital</span>
-      <span class="ach-txt">Army Hospital (Research &amp; Referral), New Delhi · 5 Years · <strong style="color:#4fd4a8;font-weight:700">India's First Genetic Counselor</strong> · Wet-Lab &amp; Bioinformatics Workflows · Collaboration with Clinical Geneticists</span>
-    </div>
-    <div class="ach-dot"></div>
-    <!-- copy 2 (exact duplicate — seamless loop) -->
-    <div class="ach-seg">
-      <i class="fas fa-medal ach-icon"></i>
-      <span class="ach-label">India's First</span>
-      <span class="ach-txt">With five years of dedicated service at Army Hospital (Research &amp; Referral), New Delhi, I had the privilege of serving as <strong style="color:#4fd4a8;font-weight:700">India's First Genetic Counselor</strong>, contributing to the establishment of comprehensive genetic services — from patient counseling and clinical genetics to developing both wet-laboratory and genomic bioinformatics (dry-laboratory) workflows in collaboration with Clinical Geneticists.</span>
-    </div>
-    <div class="ach-dot"></div>
-    <div class="ach-seg">
-      <i class="fas fa-shield-alt ach-icon" style="color:#a78bfa"></i>
-      <span class="ach-label">Army Hospital</span>
-      <span class="ach-txt">Army Hospital (Research &amp; Referral), New Delhi · 5 Years · <strong style="color:#4fd4a8;font-weight:700">India's First Genetic Counselor</strong> · Wet-Lab &amp; Bioinformatics Workflows · Collaboration with Clinical Geneticists</span>
-    </div>
-    <div class="ach-dot"></div>
-  </div>
-</div>
 
 <!-- FEATURE BOXES -->
 <div class="feat-wrap">
