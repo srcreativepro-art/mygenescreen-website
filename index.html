@@ -187,6 +187,18 @@ a{text-decoration:none}
 .spot-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,#fbbf24,transparent);margin:0 auto 28px}
 .spot-txt{font-size:15.5px;color:rgba(255,255,255,.75);line-height:1.85;font-family:'Lato',sans-serif;max-width:760px;margin:0 auto}
 .spot-txt strong{color:#4fd4a8;font-weight:700}
+/* ACHIEVEMENT TICKER (below spotlight) */
+.ach-ticker{background:#020c04;border-top:1px solid rgba(251,191,36,.3);border-bottom:1px solid rgba(251,191,36,.3);padding:14px 0;overflow:hidden;position:relative}
+.ach-ticker::before,.ach-ticker::after{content:'';position:absolute;top:0;height:100%;width:80px;z-index:2;pointer-events:none}
+.ach-ticker::before{left:0;background:linear-gradient(90deg,#020c04,transparent)}
+.ach-ticker::after{right:0;background:linear-gradient(-90deg,#020c04,transparent)}
+.ach-ticker-track{display:flex;width:max-content;animation:ach-roll 45s linear infinite}
+.ach-ticker-track:hover{animation-play-state:paused}
+.ach-ticker-item{display:inline-flex;align-items:center;gap:12px;padding:0 52px;white-space:nowrap;font-size:13px;font-family:'Lato',sans-serif;color:rgba(255,255,255,.78)}
+.ach-ticker-item .ti{color:#fbbf24;font-size:13px}
+.ach-ticker-item .th{color:#fbbf24;font-weight:700}
+.ach-ticker-item .td{color:rgba(251,191,36,.35);margin:0 4px}
+@keyframes ach-roll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ACHIEVEMENT POPUP */
 .ach-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:99990;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);animation:popFadeIn .5s ease both}
@@ -742,6 +754,17 @@ textarea.fc{resize:vertical;min-height:90px}
     <div class="spot-loc"><i class="fas fa-shield-alt"></i> Army Hospital (Research &amp; Referral), New Delhi <i class="fas fa-circle" style="font-size:5px"></i> 5 Years of Service</div>
     <div class="spot-divider"></div>
     <p class="spot-txt">With five years of dedicated service at Army Hospital (Research &amp; Referral), New Delhi, I had the privilege of serving as <strong>India's First Genetic Counselor</strong>, contributing to the establishment of comprehensive genetic services — from patient counseling and clinical genetics to developing both <strong>wet-laboratory</strong> and <strong>genomic bioinformatics (dry-laboratory)</strong> workflows in collaboration with Clinical Geneticists.</p>
+  </div>
+</div>
+
+<!-- ACHIEVEMENT TICKER -->
+<div class="ach-ticker">
+  <div class="ach-ticker-track">
+    <div class="ach-ticker-item"><i class="fas fa-medal ti"></i> <span>With five years of dedicated service at</span> <span class="th">Army Hospital (R&amp;R), New Delhi</span> <span class="td">·</span> I had the privilege of serving as <span class="th">India's First Genetic Counselor</span> <span class="td">·</span> <span>Comprehensive genetic services — patient counseling, clinical genetics, wet-laboratory &amp; genomic bioinformatics workflows</span></div>
+    <div class="ach-ticker-item"><i class="fas fa-shield-alt ti" style="color:#a78bfa"></i> <span class="th">Army Hospital (Research &amp; Referral), New Delhi</span> <span class="td">·</span> <span>5 Years</span> <span class="td">·</span> <span class="th">India's First Genetic Counselor</span> <span class="td">·</span> <span>Wet-Lab &amp; Genomic Bioinformatics</span> <span class="td">·</span> <span>Clinical Geneticist Collaboration</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ach-ticker-item"><i class="fas fa-medal ti"></i> <span>With five years of dedicated service at</span> <span class="th">Army Hospital (R&amp;R), New Delhi</span> <span class="td">·</span> I had the privilege of serving as <span class="th">India's First Genetic Counselor</span> <span class="td">·</span> <span>Comprehensive genetic services — patient counseling, clinical genetics, wet-laboratory &amp; genomic bioinformatics workflows</span></div>
+    <div class="ach-ticker-item"><i class="fas fa-shield-alt ti" style="color:#a78bfa"></i> <span class="th">Army Hospital (Research &amp; Referral), New Delhi</span> <span class="td">·</span> <span>5 Years</span> <span class="td">·</span> <span class="th">India's First Genetic Counselor</span> <span class="td">·</span> <span>Wet-Lab &amp; Genomic Bioinformatics</span> <span class="td">·</span> <span>Clinical Geneticist Collaboration</span></div>
   </div>
 </div>
 
