@@ -50,8 +50,8 @@ a:hover{color:var(--cy2);text-decoration:underline}
 .stat-num{font-size:1.7rem;font-weight:800;line-height:1;display:block}
 .stat-lbl{font-size:.72rem;opacity:.85;margin-top:3px;display:block;text-transform:uppercase;letter-spacing:.5px}
 /* LAYOUT */
-.page-wrap{max-width:1240px;margin:0 auto;padding:40px 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
-.side-col{position:sticky;top:72px}
+.page-wrap{max-width:1240px;margin:0 auto;padding:48px 24px 80px;background:var(--bg);display:flex;flex-direction:row;gap:48px;align-items:flex-start}
+.side-col{width:300px;min-width:300px;flex-shrink:0;order:2;position:sticky;top:84px;align-self:flex-start}
 .toc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
 .toc-title{font-size:.76rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--cy2);margin-bottom:14px}
 .toc a{display:block;font-size:.87rem;color:var(--muted);padding:6px 0 6px 12px;border-left:2px solid transparent;transition:all .22s;line-height:1.4}
@@ -60,8 +60,8 @@ a:hover{color:var(--cy2);text-decoration:underline}
 .toc-cta p{color:rgba(255,255,255,.65);font-size:.79rem;margin-bottom:10px;line-height:1.45}
 .toc-cta a{display:block;background:var(--cy);color:#fff;padding:10px;border-radius:7px;font-weight:700;font-size:.84rem}
 .toc-cta a:hover{background:var(--cy2);text-decoration:none}
-.side-col{grid-column:2;position:sticky;top:84px;align-self:start}
-.content{grid-column:1;min-width:0}
+
+.content{flex:1;min-width:0;order:1}
 /* CONTENT */
 .content h2{font-size:1.3rem;font-weight:700;color:var(--dk);margin:40px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border);scroll-margin-top:80px}
 .content h3{font-size:1.05rem;font-weight:700;color:var(--cy2);margin:22px 0 8px}
@@ -143,9 +143,9 @@ a:hover{color:var(--cy2);text-decoration:underline}
 .foot a{color:var(--cy)}
 .foot p+p{margin-top:6px}
 @media(max-width:740px){
-  .page-wrap{grid-template-columns:1fr}
-  .side-col{grid-column:1;position:static}
-  .content{grid-column:1}
+  .page-wrap{flex-direction:column}
+  .side-col{width:100%;min-width:unset;position:static;order:0}
+  .content{order:0}
   .side-col{position:static;order:-1}
   .toc{border-radius:0;margin:0 -24px;border-left:none;border-right:none;border-top:none}
   .stats-inner{flex-wrap:wrap}
