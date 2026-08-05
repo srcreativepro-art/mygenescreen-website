@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 100">
+  <!-- Wing shapes -->
+  <path d="M120,55 C100,30 60,22 28,38 C55,28 90,38 108,58Z" fill="#1565C0" opacity="0.9"/>
+  <path d="M120,55 C140,30 180,22 212,38 C185,28 150,38 132,58Z" fill="#1565C0" opacity="0.9"/>
+  <path d="M120,55 C105,35 72,28 44,42 C68,33 100,42 114,60Z" fill="#1976D2" opacity="0.7"/>
+  <path d="M120,55 C135,35 168,28 196,42 C172,33 140,42 126,60Z" fill="#1976D2" opacity="0.7"/>
+  <!-- Center circle dot -->
+  <circle cx="120" cy="55" r="5" fill="#E91E63"/>
+  <!-- Text -->
+  <text x="120" y="82" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="20" fill="#0D47A1" letter-spacing="4">WINGS</text>
+  <text x="120" y="94" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#E91E63" letter-spacing="3">IVF HOSPITAL</text>
+</svg>
