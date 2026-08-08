@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 :root {
   --cy: #009f6b;
@@ -664,27 +665,27 @@ footer a { color: var(--cy); }
           <div class="form-row">
             <div class="form-group">
               <label>First Name</label>
-              <input type="text" placeholder="Priya" required>
+              <input type="text" name="first_name" placeholder="Priya" required>
             </div>
             <div class="form-group">
               <label>Last Name</label>
-              <input type="text" placeholder="Mehta" required>
+              <input type="text" name="last_name" placeholder="Mehta" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label>Email Address</label>
-              <input type="email" placeholder="you@email.com" required>
+              <input type="email" name="email" placeholder="you@email.com" required>
             </div>
             <div class="form-group">
               <label>WhatsApp Number</label>
-              <input type="tel" placeholder="+91 98765 43210" required>
+              <input type="tel" name="whatsapp" placeholder="+91 98765 43210" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group form-full">
               <label>I am a…</label>
-              <select required>
+              <select name="background" required>
                 <option value="" disabled selected>Select your background</option>
                 <option>Student (Genetics / Life Sciences / Medicine)</option>
                 <option>Medical Doctor / Specialist</option>
@@ -697,7 +698,7 @@ footer a { color: var(--cy); }
               </select>
             </div>
           </div>
-          <button type="submit" class="btn-reg">
+          <button type="submit" id="submitBtn" class="btn-reg">
             <i class="fas fa-calendar-check"></i>
             Confirm My Free Seat
           </button>
@@ -707,7 +708,7 @@ footer a { color: var(--cy); }
         <div id="regSuccess" style="display:none;text-align:center;padding:20px">
           <div style="font-size:48px;margin-bottom:12px">🎉</div>
           <h3 style="font-family:'Montserrat',sans-serif;font-size:22px;margin-bottom:8px">You're registered!</h3>
-          <p style="color:rgba(255,255,255,.7)">Check your WhatsApp and email for your confirmation. We'll send the Zoom link a day before the webinar.</p>
+          <p style="color:rgba(255,255,255,.7)">A confirmation email is on its way to your inbox. We'll send the Zoom link 24 hours before the webinar — check spam if you don't see it.</p>
           <a href="https://wa.me/919717210124?text=Hi%20Lakshita%2C%20I%20just%20registered%20for%20your%20September%205%20webinar!" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 24px;border-radius:50px;font-weight:700;margin-top:18px;font-family:'Montserrat',sans-serif;font-size:14px"><i class="fab fa-whatsapp"></i> Confirm on WhatsApp</a>
         </div>
 
@@ -781,13 +782,121 @@ function toggleFaq(btn){
   if(!isOpen) item.classList.add('open');
 }
 
+// ── EMAILJS INIT ──
+// SETUP: Replace these 3 values after creating your free EmailJS account at emailjs.com
+// Step-by-step instructions are in the comment block at the bottom of this file.
+const EMAILJS_PUBLIC_KEY   = 'YOUR_PUBLIC_KEY';      // Account → API Keys → Public Key
+const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';      // Email Services → your Gmail service ID
+const EMAILJS_TEMPLATE_ID  = 'YOUR_TEMPLATE_ID';     // Email Templates → your template ID
+
+(function(){
+  if(EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'){
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+})();
+
 // ── FORM SUBMIT ──
 function submitForm(e){
   e.preventDefault();
-  document.getElementById('regForm').style.display='none';
-  document.getElementById('regSuccess').style.display='block';
-  window.scrollTo({top:document.getElementById('register').offsetTop-100,behavior:'smooth'});
+  const form = document.getElementById('regForm');
+  const btn  = document.getElementById('submitBtn');
+
+  // Guard: if EmailJS not configured, fall through to the local success state
+  if(EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY'){
+    form.style.display = 'none';
+    document.getElementById('regSuccess').style.display = 'block';
+    window.scrollTo({top:document.getElementById('register').offsetTop-100,behavior:'smooth'});
+    return;
+  }
+
+  // Loading state
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+
+  const data = {
+    first_name : form.querySelector('[name="first_name"]').value.trim(),
+    last_name  : form.querySelector('[name="last_name"]').value.trim(),
+    email      : form.querySelector('[name="email"]').value.trim(),
+    whatsapp   : form.querySelector('[name="whatsapp"]').value.trim(),
+    background : form.querySelector('[name="background"]').value,
+  };
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
+    .then(function(){
+      form.style.display = 'none';
+      document.getElementById('regSuccess').style.display = 'block';
+      window.scrollTo({top:document.getElementById('register').offsetTop-100,behavior:'smooth'});
+    })
+    .catch(function(err){
+      console.error('EmailJS error:', err);
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-calendar-check"></i> Confirm My Free Seat';
+      alert('Something went wrong. Please try again or WhatsApp +91 97172 10124 to register.');
+    });
 }
+
+/*
+  ═══════════════════════════════════════════════════════════════
+  HOW TO SET UP EMAIL AUTO-REPLY (takes ~10 minutes, free)
+  ═══════════════════════════════════════════════════════════════
+
+  1. GO TO: https://www.emailjs.com/ → Sign Up Free
+     (use mgenescreen@gmail.com)
+
+  2. ADD EMAIL SERVICE:
+     Dashboard → Email Services → Add New Service → Gmail
+     Click "Connect Account" → sign in with mgenescreen@gmail.com
+     Copy the Service ID (e.g. service_abc123) → paste as EMAILJS_SERVICE_ID above
+
+  3. CREATE EMAIL TEMPLATE:
+     Dashboard → Email Templates → Create New Template
+
+     TEMPLATE SETTINGS:
+       To email:  {{email}}          ← sends confirmation to registrant
+       From name: Lakshita Thakore | MyGeneScreen
+       Reply To:  mgenescreen@gmail.com
+       Subject:   You're registered! 🎓 Genetics Webinar — 5 Sept 2026
+
+     TEMPLATE BODY (paste this):
+     ──────────────────────────────────
+     Hi {{first_name}},
+
+     You're officially registered for the FREE Genetics Decoded Webinar! 🎉
+
+     📅 Date: Friday, 5 September 2026 (Teachers' Day)
+     ⏰ Time: 7:00 PM IST
+     📍 Platform: Zoom (link coming to your inbox!)
+
+     Your spot is confirmed. We'll send the Zoom joining link to
+     {{email}} at least 24 hours before the session starts.
+
+     What's coming:
+     ✅ Career clarity for students in genetics & life sciences
+     ✅ Clinical genomics frameworks for practising doctors
+     ✅ Practical counseling skills for genetic counselors
+     ✅ Live Q&A — bring your questions!
+
+     See you on September 5! 🧬
+
+     Warm regards,
+     Lakshita Thakore
+     BGCI Certified Genetic Counselor (BGC 2022-178)
+     MyGeneScreen Clinic, Ahmedabad
+     📞 +91 97172 10124 | 🌐 mygenescreen.in
+     ──────────────────────────────────
+     Copy the Template ID (e.g. template_xyz789) → paste as EMAILJS_TEMPLATE_ID above
+
+  4. GET YOUR PUBLIC KEY:
+     Dashboard → Account → API Keys → Public Key
+     Paste it as EMAILJS_PUBLIC_KEY above
+
+  5. ENABLE AUTO-REPLY (so YOU also get notified of each registration):
+     In the same template, scroll to "BCC" → enter mgenescreen@gmail.com
+     Every registration confirmation email will be BCC'd to you.
+
+  6. SAVE this file (webinar.html) with the 3 values filled in, then push to GitHub.
+  ═══════════════════════════════════════════════════════════════
+*/
 
 // ── REVEAL ON SCROLL ──
 const observer = new IntersectionObserver((entries)=>{
